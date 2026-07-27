@@ -107,9 +107,11 @@ project build-step-free unless custom JS becomes unavoidable.
 
 ### 1. Tokens first — everything is a preset in `theme.json`
 
-- **Colors**: one brand color, one accent, 3–4 neutrals in
-  `settings.color.palette`. Borrow from a proven palette (Radix, Tailwind, or
-  a Hallmark-derived oklch ramp) rather than picking hex by eye.
+- **Colors**: a role-based palette in `settings.color.palette` — 3–4 tinted
+  neutrals plus a multi-accent set where **each accent owns one role**
+  (primary action, links/hover, one pop moment, sparing tags). Accents never
+  blend in gradients. Borrow from a proven palette (Radix, Tailwind, or a
+  Hallmark-derived oklch ramp) rather than picking hex by eye.
 - **Typography**: at most two fonts, self-hosted (latin-subset variable woff2
   in `assets/fonts/`, registered via `fontFace` in `theme.json` — no runtime
   Google Fonts request). Scale in `settings.typography.fontSizes`, modular
