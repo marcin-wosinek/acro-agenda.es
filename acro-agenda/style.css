@@ -225,6 +225,118 @@ body {
 	}
 }
 
+/* Hallmark · component: form inputs (Fair Form plugin) · genre: playful · theme: Hum (locked, design.md)
+ * states: default · hover · focus · active(=focus) · disabled · loading (plugin
+ * disables submit + swaps label) · error · success (.fair-form-message-*)
+ * menta owns success (design.md); coral = this view's pop moment (error + required mark)
+ * contrast: pass · pre-emit critique: P4 H4 E4 S4 R5 V4 */
+
+/* Rest — the plugin ships WP-admin chrome (grey #8c8f94 border, 4px radius,
+   admin-blue focus) and form controls don't inherit fonts, so inputs render
+   Arial and textareas monospace. font: inherit + Hum tokens fix both.
+   Border stays 1px in every state (no-layout-shift rule); the outline slot
+   is reserved transparent so the focus ring appears without a repaint pop. */
+.fair-form-form input[type="text"],
+.fair-form-form input[type="email"],
+.fair-form-form input[type="tel"],
+.fair-form-form select,
+.fair-form-form textarea {
+	font: inherit;
+	color: var(--wp--preset--color--contrast);
+	background-color: var(--wp--preset--color--base);
+	border: 1px solid color-mix(in oklch, var(--wp--preset--color--contrast) 45%, transparent);
+	border-radius: var(--wp--custom--radius--input);
+	padding: var(--wp--preset--spacing--sm) var(--wp--preset--spacing--md);
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+	transition:
+		background-color 160ms var(--wp--custom--ease--press),
+		border-color 160ms var(--wp--custom--ease--press);
+}
+
+.fair-form-form ::placeholder {
+	color: color-mix(in oklch, var(--wp--preset--color--contrast) 55%, transparent);
+	opacity: 1;
+}
+
+/* Hover — fill steps to the designated hover surface; border holds still */
+@media (hover: hover) {
+	.fair-form-form input[type="text"]:not(:disabled):hover,
+	.fair-form-form input[type="email"]:not(:disabled):hover,
+	.fair-form-form input[type="tel"]:not(:disabled):hover,
+	.fair-form-form select:not(:disabled):hover,
+	.fair-form-form textarea:not(:disabled):hover {
+		background-color: var(--wp--preset--color--base-2);
+	}
+}
+
+/* Focus — instant ring (never animated), border deepens to ink; overrides the
+   plugin's admin-blue border + box-shadow at equal specificity, later cascade */
+.fair-form-form input[type="text"]:focus,
+.fair-form-form input[type="email"]:focus,
+.fair-form-form input[type="tel"]:focus,
+.fair-form-form select:focus,
+.fair-form-form textarea:focus {
+	outline: 2px solid var(--wp--custom--color--focus);
+	outline-offset: 2px;
+	border-color: var(--wp--preset--color--contrast);
+	box-shadow: none;
+}
+
+/* Disabled — same voice as disabled buttons: Papel 3, ink at 45%, flat.
+   Radius re-asserted because the plugin's disabled rule outranks the rest rule. */
+.fair-form-form input:disabled,
+.fair-form-form select:disabled,
+.fair-form-form textarea:disabled {
+	background-color: var(--wp--preset--color--base-3);
+	border-color: transparent;
+	border-radius: var(--wp--custom--radius--input);
+	color: color-mix(in oklch, var(--wp--preset--color--contrast) 45%, transparent);
+	cursor: not-allowed;
+}
+
+/* Loading — the plugin disables the submit button and swaps its label while
+   in flight; the theme's disabled-button voice carries it. Cancel the
+   plugin's extra opacity fade so the voice stays ours. */
+.fair-form-submit-button:disabled {
+	opacity: 1;
+}
+
+/* Checkbox (the "keep informed" opt-in on other Fair forms) */
+.fair-form-form input[type="checkbox"] {
+	accent-color: var(--wp--custom--color--focus);
+}
+
+/* Required mark — coral pulled toward ink to clear small-text contrast */
+.fair-form-form .required {
+	color: color-mix(in oklch, var(--wp--preset--color--coral) 60%, var(--wp--preset--color--contrast));
+}
+
+/* Result messages — accent-tinted fills with ink text (never accent text on
+   accent fills). Menta owns success; coral owns error, the view's one pop. */
+.fair-form-form .fair-form-message {
+	border-radius: var(--wp--custom--radius--input);
+	padding: var(--wp--preset--spacing--sm) var(--wp--preset--spacing--md);
+	font-weight: 500;
+}
+
+.fair-form-form .fair-form-message-success {
+	background-color: color-mix(in oklch, var(--wp--preset--color--menta) 25%, var(--wp--preset--color--base));
+	border: 1px solid var(--wp--preset--color--menta);
+	color: var(--wp--preset--color--contrast);
+}
+
+.fair-form-form .fair-form-message-error {
+	background-color: color-mix(in oklch, var(--wp--preset--color--coral) 14%, var(--wp--preset--color--base));
+	border: 1px solid var(--wp--preset--color--coral);
+	color: var(--wp--preset--color--contrast);
+}
+
+/* Plugin credit line — ink at reduced strength, never a new grey */
+.fair-audience-powered-by {
+	color: color-mix(in oklch, var(--wp--preset--color--contrast) 55%, transparent);
+}
+
 /* Focus ring — --wp--custom--color--focus, shown instantly (never animated) */
 :focus-visible {
 	outline: 2px solid var(--wp--custom--color--focus);
