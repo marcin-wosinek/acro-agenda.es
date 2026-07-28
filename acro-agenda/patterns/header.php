@@ -16,8 +16,7 @@
 
 	<!-- wp:navigation {"overlayMenu":"mobile","overlayBackgroundColor":"base","overlayTextColor":"contrast","style":{"typography":{"fontWeight":"600"}},"layout":{"type":"flex","justifyContent":"center"}} -->
 		<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Valencia', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/valencia/' ) ); ?>","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Cataluña', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/cataluna/' ) ); ?>","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Madrid', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/comunidad-de-madrid/' ) ); ?>","kind":"custom"} /-->
+		<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Festivales', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/festivales/' ) ); ?>","kind":"custom"} /-->
 	<!-- /wp:navigation -->
 
 	<!-- wp:buttons {"className":"aa-header-cta","style":{"spacing":{"blockGap":"0"}}} -->

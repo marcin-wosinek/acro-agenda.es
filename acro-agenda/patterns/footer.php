@@ -33,6 +33,10 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"aa-footer-link"} -->
+			<p class="aa-footer-link"><a href="<?php echo esc_url( home_url( '/festivales/' ) ); ?>"><?php esc_html_e( 'Festivales', 'acro-agenda' ); ?></a></p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"className":"aa-footer-link"} -->
 			<p class="aa-footer-link"><a href="<?php echo esc_url( home_url( '/publica-tu-evento/' ) ); ?>"><?php esc_html_e( 'Publica tu evento', 'acro-agenda' ); ?></a></p>
 			<!-- /wp:paragraph -->
 
