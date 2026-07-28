@@ -16,21 +16,85 @@ Text Domain: acro-agenda
 .wp-block-button__link {
 	transition:
 		transform 160ms var(--wp--custom--ease--press),
-		box-shadow 160ms var(--wp--custom--ease--press);
+		box-shadow 160ms var(--wp--custom--ease--press),
+		background-color 160ms var(--wp--custom--ease--press),
+		border-color 160ms var(--wp--custom--ease--press);
 }
 
-.wp-element-button:hover,
-.wp-block-button__link:hover {
+.wp-element-button:not(:disabled, [aria-disabled="true"]):hover,
+.wp-block-button__link:not([aria-disabled="true"]):hover {
 	transform: translateY(-2px);
 	box-shadow:
 		0 6px 0 0 var(--wp--preset--color--sol-deep),
 		var(--wp--custom--shadow--btn-cast);
 }
 
-.wp-element-button:active,
-.wp-block-button__link:active {
+.wp-element-button:not(:disabled, [aria-disabled="true"]):active,
+.wp-block-button__link:not([aria-disabled="true"]):active {
 	transform: translateY(3px);
 	box-shadow: 0 1px 0 0 var(--wp--preset--color--sol-deep);
+}
+
+/* Hallmark · component: buttons · genre: playful · theme: Hum (locked, design.md)
+ * voices: primary push (above) · secondary soft (.is-style-soft) · tertiary outline (.is-style-outline)
+ * states: default · hover · focus (global ring below) · active · disabled —
+ * loading/error/success have no entry vector in a JS-free block theme; add
+ * alongside the first real form. One push button per view (design.md).
+ * contrast: pass · pre-emit critique: P4 H4 E4 S4 R5 V4 */
+
+/* Secondary "suave" — flat Papel-2 fill, soft shadow; hover deepens to the
+   palette's designated hover surface (Papel 3) with a 1px lift. */
+.wp-block-button.is-style-soft > .wp-block-button__link {
+	background-color: var(--wp--preset--color--base-2);
+	box-shadow: var(--wp--custom--shadow--btn-soft);
+}
+
+.wp-block-button.is-style-soft > .wp-block-button__link:not([aria-disabled="true"]):hover {
+	background-color: var(--wp--preset--color--base-3);
+	transform: translateY(-1px);
+	box-shadow: var(--wp--custom--shadow--btn-soft);
+}
+
+.wp-block-button.is-style-soft > .wp-block-button__link:not([aria-disabled="true"]):active {
+	background-color: var(--wp--preset--color--base-3);
+	transform: translateY(1px);
+	box-shadow: none;
+}
+
+/* Tertiary outline — 1px ink-mix border (design.md: "1px outline", not
+   core's 2px), transparent fill. Hover stays on the paper ramp: accents
+   keep their owned roles (three-rule). */
+.wp-block-button.is-style-outline > .wp-block-button__link {
+	background-color: transparent;
+	border: 1px solid color-mix(in oklch, var(--wp--preset--color--contrast) 30%, transparent);
+	box-shadow: none;
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link:not([aria-disabled="true"]):hover {
+	background-color: var(--wp--preset--color--base-2);
+	border-color: color-mix(in oklch, var(--wp--preset--color--contrast) 50%, transparent);
+	transform: translateY(-1px);
+	box-shadow: none;
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link:not([aria-disabled="true"]):active {
+	background-color: var(--wp--preset--color--base-3);
+	transform: translateY(1px);
+	box-shadow: none;
+}
+
+/* Disabled — flattened to the paper ramp: no pressable edge, no lift.
+   Ink at 45% (ink-with-opacity rule, never a new grey); WCAG exempts
+   disabled controls from contrast minima. */
+.wp-element-button:disabled,
+.wp-element-button[aria-disabled="true"],
+.wp-block-button .wp-block-button__link[aria-disabled="true"] {
+	background-color: var(--wp--preset--color--base-3);
+	color: color-mix(in oklch, var(--wp--preset--color--contrast) 45%, transparent);
+	border-color: transparent;
+	box-shadow: none;
+	transform: none;
+	cursor: not-allowed;
 }
 
 /* No horizontal scroll, ever — clip (not hidden) so sticky/fixed chrome
@@ -177,14 +241,28 @@ body {
 		transition: background-color 150ms linear;
 	}
 
-	.wp-element-button:hover,
-	.wp-element-button:active,
-	.wp-block-button__link:hover,
-	.wp-block-button__link:active {
+	.wp-element-button:not(:disabled, [aria-disabled="true"]):hover,
+	.wp-element-button:not(:disabled, [aria-disabled="true"]):active,
+	.wp-block-button__link:not([aria-disabled="true"]):hover,
+	.wp-block-button__link:not([aria-disabled="true"]):active {
 		transform: none;
 		background-color: var(--wp--preset--color--sol-deep);
 		box-shadow:
 			0 4px 0 0 var(--wp--preset--color--sol-deep),
 			var(--wp--custom--shadow--btn-cast);
+	}
+
+	/* Soft / outline voices already speak in color on hover — just hold
+	   them to their own ramp instead of the primary's sol-deep. */
+	.wp-block-button.is-style-soft > .wp-block-button__link:not([aria-disabled="true"]):hover,
+	.wp-block-button.is-style-soft > .wp-block-button__link:not([aria-disabled="true"]):active {
+		background-color: var(--wp--preset--color--base-3);
+		box-shadow: var(--wp--custom--shadow--btn-soft);
+	}
+
+	.wp-block-button.is-style-outline > .wp-block-button__link:not([aria-disabled="true"]):hover,
+	.wp-block-button.is-style-outline > .wp-block-button__link:not([aria-disabled="true"]):active {
+		background-color: var(--wp--preset--color--base-2);
+		box-shadow: none;
 	}
 }

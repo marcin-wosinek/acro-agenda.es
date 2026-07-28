@@ -105,6 +105,42 @@ handle or mechanism exists — the front page content carries a
 Valencia-specific `@acro.agenda.valencia`; add social links here only
 if a site-wide channel emerges).
 
+### Buttons — 2026-07-28
+
+The three CTA voices from § Shape & CTA voice, now fully implemented.
+Primary was already live (rest in `theme.json` `elements.button`, physics
+in `style.css`); this piece adds the other two voices + disabled. Files:
+`functions.php` (registers the `soft` block style, label «Suave
+(secundario)»), `style.css` (all variant CSS, preset vars only),
+`theme.json` (new `--wp--custom--shadow--btn-soft` token).
+
+- **Primary push** · unchanged (sol fill, edge, lift/press). Hover/active
+  physics now guarded with `:not(:disabled, [aria-disabled="true"])` so a
+  disabled submit no longer lifts or shows the pressable edge.
+- **Secondary «suave»** (`.is-style-soft`) · Papel 2 flat fill +
+  `btn-soft` shadow (`0 2px 10px -4px` ink/18%); hover = Papel 3 (the
+  palette's designated hover surface) + 1px lift; active = 1px press,
+  shadow drops. Deliberately on the paper ramp, no accent — sol owns
+  primary, and a sol-tint secondary would read as a second primary.
+- **Tertiary outline** (core `.is-style-outline`, restyled) · transparent
+  fill, **1px** ink/30% border (not core's 2px — lighter voice), ink
+  text; hover = Papel 2 fill + border deepens to ink/50%; active =
+  Papel 3. Cielo hover tint rejected: on a button shape it reads as a
+  link pill (nav vocabulary), and the three-rule keeps cielo on links.
+- **Disabled** (all voices, `:disabled` / `[aria-disabled="true"]`) ·
+  Papel 3 fill, ink at 45% (ink-with-opacity rule), no shadow/edge, no
+  transform, `cursor: not-allowed`. WCAG exempts disabled controls from
+  contrast minima.
+- **Reduced motion** · primary keeps its sol-deep color feedback;
+  suave/outline hold to their own paper-ramp hover colors (previously the
+  blanket rule would have painted them sol-deep).
+- **Loading / error / success** · deliberately not shipped — a JS-free
+  block theme has no vector into those states; add alongside the first
+  real form (menta owns success when that day comes).
+- Verified at 1280 + 375 (no horizontal scroll, one-line labels, 55px
+  targets), on base and Papel 2 bands, hover/disabled computed-style
+  checked in-browser. One push button per view still holds.
+
 ## Brief
 
 Community aggregator of acroyoga events (classes, jams, workshops,
