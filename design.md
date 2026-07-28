@@ -77,7 +77,7 @@ wordmark = none · rule = none. Files: `parts/footer.html` →
 - **Band** · base-2 (Papel 2) — bookends the header; same rule as there:
   the tinted band *is* the boundary, no hairlines anywhere in the piece
   (knob "rule above meta" deliberately none).
-- **Statement** · «Nos vemos en la jam.» — 2xl fluid, weight 700,
+- **Statement** · «Nos vemos volando.» — 2xl fluid, weight 700,
   tracking −0.025em, line-height 1.1, max 28ch. Plain ink: a sol
   highlight under "jam" was rejected because sol owns primary action
   only (three-rule), and coral must stay free for each view's one pop

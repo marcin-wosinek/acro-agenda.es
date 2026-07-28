@@ -11,7 +11,7 @@
 <footer class="wp-block-group aa-footer alignfull has-base-2-background-color has-background" style="padding-top:var(--wp--preset--spacing--2-xl);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--lg)">
 
 	<!-- wp:paragraph {"className":"aa-footer-line","fontSize":"2xl","style":{"typography":{"fontWeight":"700","letterSpacing":"-0.025em","lineHeight":"1.1"}}} -->
-	<p class="aa-footer-line has-2-xl-font-size" style="font-weight:700;letter-spacing:-0.025em;line-height:1.1"><?php esc_html_e( 'Nos vemos en la jam.', 'acro-agenda' ); ?></p>
+	<p class="aa-footer-line has-2-xl-font-size" style="font-weight:700;letter-spacing:-0.025em;line-height:1.1"><?php esc_html_e( 'Nos vemos volando.', 'acro-agenda' ); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:group {"className":"aa-footer-meta","style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
