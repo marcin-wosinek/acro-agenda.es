@@ -33,6 +33,7 @@ Text Domain: acro-agenda
 .wp-block-button__link:not([aria-disabled="true"]):active {
 	transform: translateY(3px);
 	box-shadow: 0 1px 0 0 var(--wp--preset--color--sol-deep);
+	outline: none;
 }
 
 /* Hallmark · component: buttons · genre: playful · theme: Hum (locked, design.md)
