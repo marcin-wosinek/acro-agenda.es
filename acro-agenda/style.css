@@ -119,6 +119,47 @@ body {
 	}
 }
 
+/* Hallmark · component: footer · genre: playful · theme: Hum (locked, design.md)
+   footer: Ft5 Statement · knobs: sentence≤28ch · wordmark=none · rule=none (band is the boundary)
+   pre-emit critique: P4 H4 E4 S4 R5 V4 */
+
+.aa-footer-line {
+	max-width: 28ch;
+}
+
+/* Meta links — same pill vocabulary as the header nav (cielo owns hover).
+   Negative start margin realigns the first pill's text with the statement's
+   left edge; block padding keeps the ≥44px hit target. */
+.aa-footer-nav {
+	margin-inline-start: calc(-1 * var(--wp--preset--spacing--sm));
+}
+
+.aa-footer-link a {
+	display: inline-block;
+	padding: var(--wp--preset--spacing--sm);
+	border-radius: var(--wp--custom--radius--pill);
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color 160ms var(--wp--custom--ease--press);
+}
+
+.aa-footer-link a:hover {
+	background-color: color-mix(in oklch, var(--wp--preset--color--cielo) 10%, transparent);
+}
+
+/* Credit line — ink at reduced strength, never a new grey */
+.aa-footer-copy {
+	color: color-mix(in oklch, var(--wp--preset--color--contrast) 72%, transparent);
+}
+
+/* Narrow phones: tighten the band's inline padding to match the header.
+   !important needed to beat the block's inline padding. */
+@media (max-width: 30em) {
+	.aa-footer {
+		padding-inline: var(--wp--preset--spacing--sm) !important;
+	}
+}
+
 /* Focus ring — --wp--custom--color--focus, shown instantly (never animated) */
 :focus-visible {
 	outline: 2px solid var(--wp--custom--color--focus);

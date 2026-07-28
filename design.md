@@ -37,12 +37,14 @@ header CSS in `style.css`.
 
 - **Band** · base-2 (Papel 2) — the tinted band *is* the boundary; no
   border hairline, keeping the no-raw-values rule intact.
-- **Wordmark** · "Acro Agenda", Plus Jakarta 800, md size, hard-coded in
-  the pattern (not `core/site-title` — the DB blogname is the long SEO
-  title, and the pattern must work on a fresh DB). The character moment
-  rides here: sol dot (`::after`, 0.32em) with the locked 4s 1→1.04→1
-  pulse. *Observation:* at dot size the 4% scale is near-imperceptible;
-  amend the amplitude intentionally if it should read at rest.
+- **Wordmark** · `get_bloginfo( 'name' )` (2026-07-28 revision — the WP
+  Settings → General site title, currently "Acro-Agenda", now IS the
+  short name; `bloginfo` beats a hard-coded string so it still works on
+  a fresh DB, matching the earlier concern), Plus Jakarta 800, md size.
+  The character moment rides here: sol dot (`::after`, 0.32em) with the
+  locked 4s 1→1.04→1 pulse. *Observation:* at dot size the 4% scale is
+  near-imperceptible; amend the amplitude intentionally if it should
+  read at rest.
 - **Nav** · `core/navigation`, overlay below 600px (core-supplied JS,
   not custom). Region links Valencia · Cataluña · Madrid (label "Madrid"
   for page "Comunidad de Madrid"). Hover = cielo tint at 10%
@@ -61,7 +63,47 @@ header CSS in `style.css`.
 Rejected: N7 brutal slab (genre-file default — square slab fights Hum's
 rounded register); N5 floating pill (banned for playful in the genre
 file); sticky positioning (viewport theft on the mobile-heavy audience;
-revisit with real usage); `core/site-title` (see wordmark note).
+revisit with real usage); `core/site-title` block (still avoided — its
+markup isn't styleable to the same degree as the hand-built paragraph;
+`bloginfo` gets the dynamism without giving up markup control).
+
+### Footer — 2026-07-28
+
+Ft5 Statement (Hallmark footer catalog), knobs: sentence ≤28ch ·
+wordmark = none · rule = none. Files: `parts/footer.html` →
+`patterns/footer.php` + footer CSS in `style.css`; registered in
+`theme.json` `templateParts`.
+
+- **Band** · base-2 (Papel 2) — bookends the header; same rule as there:
+  the tinted band *is* the boundary, no hairlines anywhere in the piece
+  (knob "rule above meta" deliberately none).
+- **Statement** · «Nos vemos en la jam.» — 2xl fluid, weight 700,
+  tracking −0.025em, line-height 1.1, max 28ch. Plain ink: a sol
+  highlight under "jam" was rejected because sol owns primary action
+  only (three-rule), and coral must stay free for each view's one pop
+  moment (featured events on calendar pages).
+- **Meta row** · flex, wrap, space-between. Left: `<nav>` of pill text
+  links (Valencia · Cataluña · Madrid · Publica tu evento) sharing the
+  header nav's vocabulary — cielo-deep text, cielo 10% hover tint, pill
+  radius, sm padding for ≥44px targets; negative start margin realigns
+  the first pill's text with the statement's left edge. Right:
+  © `gmdate('Y')` + `bloginfo('name')`, ink at 72% via `color-mix`
+  (ink-with-opacity rule, never a new grey).
+- **«Publica tu evento»** rides as a text link, not a second push
+  button — one push button per view; the header CTA owns it.
+- **Mobile** · ≤30em inline padding tightens to sm (matches header);
+  verified at 320/375: no horizontal scroll, links one line, 48.8px
+  hit targets.
+
+Rejected: Ft8 marquee scroll (playful genre default — an always-on
+scrolling line is a second permanent motion moment; Hum-lite locks one
+character moment per page, and it reads loud on a utility site); Ft3
+index columns (no genuine sitemap; AI fingerprint); footer wordmark
+(the copyright line already carries the name; a second dot would
+duplicate the character mark); Instagram/newsletter links (no site-wide
+handle or mechanism exists — the front page content carries a
+Valencia-specific `@acro.agenda.valencia`; add social links here only
+if a site-wide channel emerges).
 
 ## Brief
 

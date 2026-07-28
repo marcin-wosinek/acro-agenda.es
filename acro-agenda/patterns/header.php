@@ -11,7 +11,7 @@
 <header class="wp-block-group aa-header alignfull has-base-2-background-color has-background" style="padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--lg)">
 
 	<!-- wp:paragraph {"className":"aa-wordmark","fontSize":"md","style":{"typography":{"fontWeight":"800","letterSpacing":"-0.025em"}}} -->
-	<p class="aa-wordmark has-md-font-size" style="font-weight:800;letter-spacing:-0.025em"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Acro Agenda', 'acro-agenda' ); ?></a></p>
+	<p class="aa-wordmark has-md-font-size" style="font-weight:800;letter-spacing:-0.025em"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:navigation {"overlayMenu":"mobile","overlayBackgroundColor":"base","overlayTextColor":"contrast","style":{"typography":{"fontWeight":"600"}},"layout":{"type":"flex","justifyContent":"center"}} -->

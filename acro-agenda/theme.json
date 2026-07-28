@@ -105,7 +105,8 @@
 		}
 	},
 	"templateParts": [
-		{ "name": "header", "title": "Cabecera", "area": "header" }
+		{ "name": "header", "title": "Cabecera", "area": "header" },
+		{ "name": "footer", "title": "Pie de página", "area": "footer" }
 	],
 	"styles": {
 		"color": {
