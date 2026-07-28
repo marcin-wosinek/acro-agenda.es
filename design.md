@@ -20,6 +20,11 @@ Decision history:
 - 2026-07-27 · v2 LOCKED. Tokens persisted into `theme.json`; latin-subset
   variable woff2 for Plus Jakarta Sans (normal + italic) and JetBrains Mono
   committed to `acro-agenda/assets/fonts/`.
+- 2026-07-28 · Persistence gap-check vs this file: enabled
+  `settings.typography.fluid` (per-size fluid was silently ignored without
+  it), added `--wp--custom--color--focus`, put the push-button edge + cast
+  shadow on the button element in `theme.json`; press physics + focus ring
+  + reduced-motion collapse into `style.css` (preset vars only).
 
 ## Brief
 

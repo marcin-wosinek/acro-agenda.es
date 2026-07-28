@@ -8,3 +8,52 @@ Requires at least: 6.7
 Requires PHP: 7.4
 Text Domain: acro-agenda
 */
+
+/* Hum push button — press physics (design.md · Shape & CTA voice).
+   Rest state (sol fill, ink text, pill radius, 4px sol-deep edge + cast
+   shadow) comes from theme.json; only the motion lives here. */
+.wp-element-button,
+.wp-block-button__link {
+	transition:
+		transform 160ms var(--wp--custom--ease--press),
+		box-shadow 160ms var(--wp--custom--ease--press);
+}
+
+.wp-element-button:hover,
+.wp-block-button__link:hover {
+	transform: translateY(-2px);
+	box-shadow:
+		0 6px 0 0 var(--wp--preset--color--sol-deep),
+		var(--wp--custom--shadow--btn-cast);
+}
+
+.wp-element-button:active,
+.wp-block-button__link:active {
+	transform: translateY(3px);
+	box-shadow: 0 1px 0 0 var(--wp--preset--color--sol-deep);
+}
+
+/* Focus ring — --wp--custom--color--focus, shown instantly (never animated) */
+:focus-visible {
+	outline: 2px solid var(--wp--custom--color--focus);
+	outline-offset: 2px;
+}
+
+/* Reduced motion: transforms collapse to a color transition (design.md) */
+@media (prefers-reduced-motion: reduce) {
+	.wp-element-button,
+	.wp-block-button__link {
+		transition: background-color 150ms linear;
+	}
+
+	.wp-element-button:hover,
+	.wp-element-button:active,
+	.wp-block-button__link:hover,
+	.wp-block-button__link:active {
+		transform: none;
+		background-color: var(--wp--preset--color--sol-deep);
+		box-shadow:
+			0 4px 0 0 var(--wp--preset--color--sol-deep),
+			var(--wp--custom--shadow--btn-cast);
+	}
+}
