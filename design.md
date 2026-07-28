@@ -26,6 +26,43 @@ Decision history:
   shadow on the button element in `theme.json`; press physics + focus ring
   + reduced-motion collapse into `style.css` (preset vars only).
 
+## Chrome
+
+### Header — 2026-07-28
+
+N1b three-section bar (Hallmark nav catalog), knobs: 3 links · no
+dropdowns · always-solid, in-flow (frost-on-scroll needs JS; project is
+JS-free). Files: `parts/header.html` → `patterns/header.php` +
+header CSS in `style.css`.
+
+- **Band** · base-2 (Papel 2) — the tinted band *is* the boundary; no
+  border hairline, keeping the no-raw-values rule intact.
+- **Wordmark** · "Acro Agenda", Plus Jakarta 800, md size, hard-coded in
+  the pattern (not `core/site-title` — the DB blogname is the long SEO
+  title, and the pattern must work on a fresh DB). The character moment
+  rides here: sol dot (`::after`, 0.32em) with the locked 4s 1→1.04→1
+  pulse. *Observation:* at dot size the 4% scale is near-imperceptible;
+  amend the amplitude intentionally if it should read at rest.
+- **Nav** · `core/navigation`, overlay below 600px (core-supplied JS,
+  not custom). Region links Valencia · Cataluña · Madrid (label "Madrid"
+  for page "Comunidad de Madrid"). Hover = cielo tint at 10%
+  (`color-mix` on the preset), pill radius — cielo owns links/hover per
+  the three-rule. `aria-current` page gets cielo-deep text.
+- **CTA** · "Publica tu evento" push button (sol, the locked primary
+  action) — rest state from `theme.json`, physics from `style.css`.
+- **Mobile** · ≤30em the wordmark and CTA step down one font size and
+  header padding tightens (`!important` overrides on the block's inline
+  padding); verified no overflow and one-line CTA at 320/375/414/768.
+- **Site-wide fix locked with this piece** · `html, body { overflow-x:
+  clip }` — pre-existing content overflow (Fair Events calendar, 374px)
+  was expanding the mobile initial containing block and pushing the nav
+  overlay's close button off-screen. `clip`, not `hidden`.
+
+Rejected: N7 brutal slab (genre-file default — square slab fights Hum's
+rounded register); N5 floating pill (banned for playful in the genre
+file); sticky positioning (viewport theft on the mobile-heavy audience;
+revisit with real usage); `core/site-title` (see wordmark note).
+
 ## Brief
 
 Community aggregator of acroyoga events (classes, jams, workshops,
