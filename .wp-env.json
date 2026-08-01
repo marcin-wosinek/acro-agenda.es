@@ -1,5 +1,6 @@
 {
 	"core": null,
+	"port": 9788,
 	"themes": ["./acro-agenda"],
 	"config": {
 		"WP_DEBUG": true,
