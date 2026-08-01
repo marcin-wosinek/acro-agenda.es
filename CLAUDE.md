@@ -155,6 +155,8 @@ and templates (`templates/*.html`) stay thin and reference the patterns.
 Change one token or one pattern → reload → judge → adjust. Always check
 ~375 px width (and 320 px for chrome) as well as desktop — no horizontal
 scroll allowed. Use browser tooling (screenshots) to verify, don't guess.
+Follow [agend.md](agend.md) for the local screenshot commands and inspect the
+desktop and mobile captures before declaring a visual change complete.
 
 ### 6. Style variations
 
