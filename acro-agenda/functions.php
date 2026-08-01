@@ -3,13 +3,48 @@
 add_action( 'init', 'acro_agenda_register_block_styles' );
 
 function acro_agenda_register_block_styles() {
-	register_block_style(
-		'core/button',
-		array(
-			'name'  => 'soft',
-			'label' => __( 'Suave (secundario)', 'acro-agenda' ),
-		)
+	$block_styles = array(
+		'core/button' => array(
+			array(
+				'name'  => 'soft',
+				'label' => __( 'Suave (secundario)', 'acro-agenda' ),
+			),
+		),
+		'core/group'  => array(
+			array(
+				'name'  => 'editorial-split-hero',
+				'label' => __( 'Hero editorial dividido', 'acro-agenda' ),
+			),
+			array(
+				'name'  => 'event-card',
+				'label' => __( 'Tarjeta de evento', 'acro-agenda' ),
+			),
+			array(
+				'name'  => 'closing-callout',
+				'label' => __( 'Llamada de cierre', 'acro-agenda' ),
+			),
+			array(
+				'name'  => 'closing-callout-coral',
+				'label' => __( 'Llamada de cierre con pop coral', 'acro-agenda' ),
+			),
+		),
+		'core/paragraph' => array(
+			array(
+				'name'  => 'mono-eyebrow',
+				'label' => __( 'Ceja mono', 'acro-agenda' ),
+			),
+			array(
+				'name'  => 'activity-tag',
+				'label' => __( 'Etiqueta de actividad', 'acro-agenda' ),
+			),
+		),
 	);
+
+	foreach ( $block_styles as $block_name => $styles ) {
+		foreach ( $styles as $style ) {
+			register_block_style( $block_name, $style );
+		}
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'acro_agenda_enqueue_styles' );

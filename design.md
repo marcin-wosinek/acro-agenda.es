@@ -28,6 +28,42 @@ Decision history:
 
 ## Chrome
 
+### Reusable visual primitives — 2026-08-01
+
+Editor-facing block styles, rather than fixed-content page patterns, make the
+new visual vocabulary available without a page slug, custom CSS, invented
+event details or a database-only Site Editor change. Files: `functions.php`
+(registrations), `style.css` (reusable behavior), `theme.json` (the added
+`duration.card` token).
+
+- **Editorial split hero** · Apply «Hero editorial dividido» to an outer Group.
+  Its first inner Group is the copy panel; an optional second inner Group is a
+  soft cielo-tinted visual panel for blocks, an illustration supplied later,
+  or plain expressive type. The one-child form spans the full surface. At
+  ≤48em it becomes a single column with visual below copy; at ≤30em all panel
+  padding tightens to `md`. No imagery, date, attendance figure or testimonial
+  is fabricated by the primitive.
+- **Event card** · «Tarjeta de evento» is the plain Papel surface: `card`
+  radius + `card` shadow + `lg` padding. Its hover lifts by `2xs` and steps to
+  Papel 2; reduced motion keeps only that surface-color feedback. It holds
+  authors' real event blocks and deliberately makes no assumptions about their
+  fields.
+- **Closing endcap** · «Llamada de cierre» is a centred Papel 2 section;
+  «… con pop coral» adds one small coral dot. Use the coral variation only
+  for the page's one coral moment, never as an additional CTA. The star returns
+  to normal flow below 48em to avoid overlapping copy. Sol remains the sole
+  primary push-button action in either style.
+- **Text primitives** · «Ceja mono» uses JetBrains Mono in the `sm` slot;
+  «Etiqueta de actividad» adds the neutral Papel 2 pill. Neither consumes an
+  accent, leaving cielo for links/hover and coral for the intentional pop.
+
+All spacing, colour, radius, shadow and typography resolve through existing
+`theme.json` presets/custom tokens. New tokens are `duration.card` (the locked
+220ms card transition) and the three `typography.mono-label-*` values used by
+the mono text treatments. The primitive CSS is generic and contains no page
+selectors. Its responsive rules explicitly target desktop plus 768, 414, 375
+and 320px; `html, body` retain the site-wide `overflow-x: clip` safeguard.
+
 ### Header — 2026-07-28
 
 N1b three-section bar (Hallmark nav catalog), knobs: 3 links · no
