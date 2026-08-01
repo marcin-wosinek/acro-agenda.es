@@ -12,6 +12,14 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
+- 2026-08-01 · Publica tu evento now uses the existing editorial split-hero,
+  event-card and coral closing-callout block styles through the private
+  `acro-agenda/publica-tu-evento` pattern and its slug-specific page template.
+  The visual panel contains only the truthful activity labels Jam, Clase,
+  Taller and Festival; it makes no claim about dates, attendance or events.
+  Sol remains the sole hero CTA, cielo stays in the reusable visual/link
+  vocabulary, and the closing endcap is the page's one coral pop. The Fair
+  Form block hierarchy and attributes are unchanged.
 - 2026-07-27 · v1 proposed single-accent terracotta (Coral register) under
   the then-current one-accent project rule.
 - 2026-07-27 · Marcin removed the one-accent rule and asked for genuinely
