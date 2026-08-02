@@ -12,6 +12,14 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
+- 2026-08-02 · Homepage (`/pagina-de-inicio/`) uses a **neighbourhood
+  guide** macrostructure: a split welcome card makes Valencia the immediate
+  calendar path, then three equal region cards make the geographical choice
+  legible before a warm festivals pause and a restrained organiser card. It
+  reuses only the existing «Tarjeta», «Tarjeta cálida», «Ceja mono» and
+  «Etiqueta de actividad» variants; the hero is the single primary push
+  button, and all later actions are links. This keeps the calendar-first job
+  clear and preserves Sol’s one-primary-action role.
 - 2026-08-02 · Added the Group style «Tarjeta». Its surface, card radius,
   card shadow and `lg` padding are registered as `style_data`, so selecting
   the style writes only `is-style-card` and keeps those design decisions out
