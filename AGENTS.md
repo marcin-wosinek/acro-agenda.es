@@ -214,6 +214,56 @@ Use a role with the narrowest practical capabilities. Revoke and regenerate
 the Application Password when access is no longer needed or may have been
 exposed.
 
+### Publishing an existing HTML page body to WordPress
+
+Use this workflow when asked to put the contents of a local Gutenberg-markup
+HTML file onto an existing WordPress page. It is an intentional content
+publication workflow: do not change the page title, slug, status, template,
+or other page settings unless the request explicitly says to do so.
+
+1. Start the local environment if needed: `npx wp-env start`.
+2. Resolve and confirm the target page from its slug before making any write.
+   This request is safe without REST credentials:
+
+   ```sh
+   curl --fail --silent --show-error --location --max-time 20 \
+     'http://localhost:9788/wp-json/wp/v2/pages?slug=<page-slug>&context=view&_fields=id,slug,status,link,title'
+   ```
+
+   Confirm there is exactly one intended page and note its `id`.
+3. Ensure the source file contains valid Gutenberg block markup (for example,
+   `<!-- wp:group -->` comments), then publish it as the page's complete
+   `content` field. Never `source .env.wp-rest`: usernames and application
+   passwords may contain spaces. Read each value directly, and do not echo
+   variables or credentials:
+
+   ```sh
+   rest_url=$(sed -n 's/^WP_REST_URL=//p' .env.wp-rest)
+   rest_user=$(sed -n 's/^WP_REST_USERNAME=//p' .env.wp-rest)
+   rest_password=$(sed -n 's/^WP_REST_APPLICATION_PASSWORD=//p' .env.wp-rest)
+
+   curl --fail --silent --show-error --location --max-time 20 \
+     --user "$rest_user:$rest_password" \
+     --request POST \
+     --data-urlencode 'content@<source-file>.html' \
+     "$rest_url/wp-json/wp/v2/pages/<page-id>?_fields=id,slug,status,modified,link"
+   ```
+
+   A successful response must retain the expected `id`, `slug`, and
+   `publish` status. Treat an HTTP 401/403 response as an authorization issue;
+   do not fall back to another account or method without user direction.
+4. Verify the public result with the repository screenshot helper, then
+   inspect both images before reporting completion:
+
+   ```sh
+   npm run screenshot -- /<page-slug>
+   npm run screenshot -- /<page-slug> --mobile
+   ```
+
+   Confirm the page has no horizontal overflow and that all expected blocks,
+   especially interactive forms, render on desktop and at 375 px. Screenshots
+   belong in gitignored `artifacts/` and are not committed.
+
 ## Importing production content
 
 To work against a real copy of the live site you need a DB dump and the
