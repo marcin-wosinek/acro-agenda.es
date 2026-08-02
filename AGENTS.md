@@ -16,6 +16,7 @@ e.g. the domain without TLD). The theme directory name **is** the slug.
 ```
 .
 ├── AGENTS.md             # this file
+├── CLAUDE.md              # symlink to AGENTS.md for Claude Code
 ├── design.md             # locked design system record (narrative; theme.json is canonical)
 ├── .wp-env.json          # local environment definition
 ├── import/               # gitignored staging area for production DB dump + uploads
@@ -77,8 +78,8 @@ one commit per step:
    `patterns/*.php` silently do nothing.
 4. **Import production content** (if migrating an existing site — see below).
 5. **Install the Hallmark design skill**: `npx skills add nutlope/hallmark`
-   (installs into `.agents/skills/hallmark/` with a symlink from
-   `.Codex/skills/hallmark` and a `skills-lock.json`; commit all three).
+   (commit the installed skill, its tool integration/symlink, and
+   `skills-lock.json`).
 6. **Design system**: run Hallmark on the brief/existing content, persist the
    outcome into `theme.json` (tokens) and `design.md` (rationale). Commit.
 7. **Build chrome then pages**: header part → footer part → front page →
@@ -155,6 +156,31 @@ and templates (`templates/*.html`) stay thin and reference the patterns.
 Change one token or one pattern → reload → judge → adjust. Always check
 ~375 px width (and 320 px for chrome) as well as desktop — no horizontal
 scroll allowed. Use browser tooling (screenshots) to verify, don't guess.
+
+Use the repository screenshot helper whenever a visual change is made. It
+opens the local wp-env site configured in `screenshot.config.cjs` (currently
+`http://localhost:9788`) and saves images under the gitignored `artifacts/`
+directory.
+
+```sh
+# Start the local WordPress environment when it is not already running.
+npx wp-env start
+
+# Desktop screenshot of the home page (1440 px wide).
+npm run screenshot
+
+# Desktop screenshot of a route.
+npm run screenshot -- /publica-tu-evento
+
+# Mobile screenshot of that route (375 px wide).
+npm run screenshot -- /publica-tu-evento --mobile
+```
+
+Inspect the generated screenshot before declaring a visual change complete.
+Check both desktop and mobile for overflow, clipped content, and unintended
+layout changes. To target a different running environment temporarily, set
+`PAGE_URL`; do not change `screenshot.config.cjs` unless the project's wp-env
+port changes.
 
 ### 6. Style variations
 
