@@ -155,8 +155,9 @@ wordmark = none · rule = none. Files: `parts/footer.html` →
   Cookies) sharing the header nav's vocabulary — cielo-deep text, cielo 10%
   hover tint, pill radius, sm padding for ≥44px targets; negative start
   margin realigns the first pill's text with the statement's left edge. Right:
-  © `gmdate('Y')` + `bloginfo('name')`, ink at 72% via `color-mix`
-  (ink-with-opacity rule, never a new grey).
+  © `gmdate('Y')` + linked «Asociacion La Mutable» credit
+  (`https://lamutable.es/`), ink at 72% via `color-mix` (ink-with-opacity
+  rule, never a new grey).
 - **«Publica tu evento»** rides as a text link, not a second push
   button — one push button per view; the header CTA owns it.
 - **Navigation source — 2026-08-02** · The footer now uses the native

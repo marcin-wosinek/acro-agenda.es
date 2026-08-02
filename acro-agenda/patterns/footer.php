@@ -29,7 +29,7 @@
 		<!-- /wp:navigation -->
 
 		<!-- wp:paragraph {"className":"aa-footer-copy","fontSize":"sm"} -->
-		<p class="aa-footer-copy has-sm-font-size">© <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
+		<p class="aa-footer-copy has-sm-font-size">© <?php echo esc_html( gmdate( 'Y' ) ); ?> <a href="<?php echo esc_url( 'https://lamutable.es/' ); ?>"><?php esc_html_e( 'Asociacion La Mutable', 'acro-agenda' ); ?></a></p>
 		<!-- /wp:paragraph -->
 
 	</div>
