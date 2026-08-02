@@ -12,6 +12,10 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
+- 2026-08-02 · Added the Group style «Tarjeta». Its surface, card radius,
+  card shadow and `lg` padding are registered as `style_data`, so selecting
+  the style writes only `is-style-card` and keeps those design decisions out
+  of block markup. Layout remains a block-level choice, not a visual style.
 - 2026-08-02 · Renamed the closing Group card style by its surface treatment:
   «Tarjeta cálida» is the Papel 2 card on the light paper surface. Its stable
   slug remains `closing-callout` so existing content retains its styling.

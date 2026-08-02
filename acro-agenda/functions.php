@@ -12,6 +12,27 @@ function acro_agenda_register_block_styles() {
 		),
 		'core/group'  => array(
 			array(
+				'name'       => 'card',
+				'label'      => __( 'Tarjeta', 'acro-agenda' ),
+				'style_data' => array(
+					'color'   => array(
+						'background' => 'var:preset|color|base',
+					),
+					'border'  => array(
+						'radius' => 'var:custom|radius|card',
+					),
+					'shadow'  => 'var:custom|shadow|card',
+					'spacing' => array(
+						'padding' => array(
+							'top'    => 'var:preset|spacing|lg',
+							'right'  => 'var:preset|spacing|lg',
+							'bottom' => 'var:preset|spacing|lg',
+							'left'   => 'var:preset|spacing|lg',
+						),
+					),
+				),
+			),
+			array(
 				'name'  => 'closing-callout',
 				'label' => __( 'Tarjeta cálida', 'acro-agenda' ),
 			),
