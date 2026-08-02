@@ -12,6 +12,11 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
+- 2026-08-02 · Renamed the two Group card styles by their surface treatment,
+  not their former page roles: «Tarjeta clara» is the light split card on the
+  Papel 2 band; «Tarjeta cálida» is the Papel 2 card on the light paper
+  surface. The stable slugs remain `editorial-split-hero` and
+  `closing-callout` so existing content retains its styling.
 - 2026-08-02 · Masked Twenty Twenty-Five's inherited `section-1` through
   `section-5` Group/Columns/Column style-variation partials. Their generic
   labels and parent palette roles do not belong to the locked Hum system and
@@ -46,14 +51,14 @@ new visual vocabulary available without a page slug, custom CSS, invented
 event details or a database-only Site Editor change. Files: `functions.php`
 (registrations) and `style.css` (reusable behavior).
 
-- **Editorial split hero** · Apply «Hero editorial dividido» to an outer Group.
+- **Tarjeta clara** · Apply «Tarjeta clara» to an outer Group.
   Its first inner Group is the copy panel; an optional second inner Group is a
   soft cielo-tinted visual panel for blocks, an illustration supplied later,
   or plain expressive type. The one-child form spans the full surface. At
   ≤48em it becomes a single column with visual below copy; at ≤30em all panel
   padding tightens to `md`. No imagery, date, attendance figure or testimonial
   is fabricated by the primitive.
-- **Closing endcap** · «Llamada de cierre» is a centred Papel 2 section.
+- **Tarjeta cálida** · «Tarjeta cálida» is a centred Papel 2 section.
   Sol remains the sole primary push-button action in the view.
 - **Text primitives** · «Ceja mono» uses JetBrains Mono in the `sm` slot;
   «Etiqueta de actividad» adds the neutral Papel 2 pill. Neither consumes an
