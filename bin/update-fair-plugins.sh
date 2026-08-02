@@ -15,6 +15,7 @@ set -euo pipefail
 REPO="marcin-wosinek/fair-event-plugins"
 INCLUDE_EXPERIMENTAL=false
 ACTIVATE=true
+CLI_CONTAINER="$(docker ps --filter 'name=wp-env-acro-agendaes-.*-cli-' --format '{{.Names}}' | head -n 1)"
 
 for arg in "$@"; do
   case "$arg" in
@@ -31,6 +32,11 @@ command -v gh >/dev/null || {
   echo "gh CLI is required: https://cli.github.com/" >&2
   exit 1
 }
+
+if [ -z "$CLI_CONTAINER" ]; then
+	echo "wp-env is not running. Start it first with: npx wp-env start" >&2
+	exit 1
+fi
 
 LATEST_TAG=$(gh release list --repo "$REPO" --limit 1 --json tagName --jq '.[0].tagName')
 echo "Latest build: $LATEST_TAG"
@@ -57,8 +63,8 @@ for url in "${URLS[@]}"; do
   # "<repo>-<tag>", so every asset in a release would otherwise reuse the
   # first one downloaded. Clear it before each install to force a fresh
   # download.
-  npx @wordpress/env run cli wp cli cache clear </dev/null >/dev/null
-  npx @wordpress/env run cli wp plugin install "$url" "${WP_ARGS[@]}" </dev/null
+  docker exec "$CLI_CONTAINER" wp cli cache clear </dev/null >/dev/null
+  docker exec "$CLI_CONTAINER" wp plugin install "$url" "${WP_ARGS[@]}" </dev/null
 done
 
 echo "Done."
