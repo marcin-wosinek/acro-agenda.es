@@ -36,7 +36,8 @@ e.g. the domain without TLD). The theme directory name **is** the slug.
 If this repo doesn't contain the structure above yet, create it in this order,
 one commit per step:
 
-1. **Init**: `.gitignore` with `node_modules/`, `import/`, `.DS_Store`.
+1. **Init**: `.gitignore` with `node_modules/`, `import/`, `.DS_Store`, and
+   `.env.wp-rest`.
 2. **Scaffold the child theme** `<slug>/`:
    - `style.css` header — the `Template: twentytwentyfive` line is what makes
      it a child theme:
@@ -186,6 +187,32 @@ port changes.
 
 Alternate palettes/pairings go in `styles/*.json` for side-by-side comparison
 in the Site Editor, but the palette in `design.md` is the locked default.
+
+## AI-assisted content publishing (WordPress REST API)
+
+When a coding agent needs to create, update, or publish editorial content,
+use the existing dedicated WordPress `AI Editor` account (with the **Editor**
+role or a custom role limited to posts and events).
+
+1. While signed in as that user, generate an Application Password at
+   **Users → Profile → Application Passwords**.
+2. Store the credentials only in the local repository-root file
+   `.env.wp-rest`, which is explicitly gitignored. Use this format:
+
+   ```dotenv
+   WP_REST_URL=https://example.com
+   WP_REST_USERNAME=AI Editor
+   WP_REST_APPLICATION_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
+   ```
+
+3. The agent may read that local file to authenticate to the WordPress REST
+   API and create, update, and publish only the permitted content. Never put
+   these values in tracked files, theme files, commits, command output, or
+   database exports.
+
+Use a role with the narrowest practical capabilities. Revoke and regenerate
+the Application Password when access is no longer needed or may have been
+exposed.
 
 ## Importing production content
 

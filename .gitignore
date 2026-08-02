@@ -4,3 +4,4 @@ import/
 artifacts/
 playwright-report/
 test-results/
+.env.wp-rest
