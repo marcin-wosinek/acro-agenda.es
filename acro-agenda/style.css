@@ -199,19 +199,6 @@ body {
 	margin-inline-start: calc(-1 * var(--wp--preset--spacing--sm));
 }
 
-.aa-footer-link a {
-	display: inline-block;
-	padding: var(--wp--preset--spacing--sm);
-	border-radius: var(--wp--custom--radius--pill);
-	text-decoration: none;
-	white-space: nowrap;
-	transition: background-color 160ms var(--wp--custom--ease--press);
-}
-
-.aa-footer-link a:hover {
-	background-color: color-mix(in oklch, var(--wp--preset--color--cielo) 10%, transparent);
-}
-
 /* Credit line — ink at reduced strength, never a new grey */
 .aa-footer-copy {
 	color: color-mix(in oklch, var(--wp--preset--color--contrast) 72%, transparent);

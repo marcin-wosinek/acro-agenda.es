@@ -126,15 +126,21 @@ wordmark = none · rule = none. Files: `parts/footer.html` →
   highlight under "jam" was rejected because sol owns primary action
   only (three-rule), and coral must stay free for each view's one pop
   moment (featured events on calendar pages).
-- **Meta row** · flex, wrap, space-between. Left: `<nav>` of pill text
-  links (Valencia · Cataluña · Madrid · Publica tu evento) sharing the
-  header nav's vocabulary — cielo-deep text, cielo 10% hover tint, pill
-  radius, sm padding for ≥44px targets; negative start margin realigns
-  the first pill's text with the statement's left edge. Right:
+- **Meta row** · flex, wrap, space-between. Left: `core/navigation` named
+  «footer menu» for assistive technology, with pill text links (Valencia ·
+  Add an event · API · Aviso Legal · Política de Privacidad · Política de
+  Cookies) sharing the header nav's vocabulary — cielo-deep text, cielo 10%
+  hover tint, pill radius, sm padding for ≥44px targets; negative start
+  margin realigns the first pill's text with the statement's left edge. Right:
   © `gmdate('Y')` + `bloginfo('name')`, ink at 72% via `color-mix`
   (ink-with-opacity rule, never a new grey).
 - **«Publica tu evento»** rides as a text link, not a second push
   button — one push button per view; the header CTA owns it.
+- **Navigation source — 2026-08-02** · The footer now uses the native
+  Navigation block rather than hand-built paragraph links, so its entries are
+  editable with the block tools. The Navigation block has no theme-file
+  attribute for a persistent `wp_navigation` post title; `ariaLabel` provides
+  the default “footer menu” name until an editor saves it as a named menu.
 - **Mobile** · ≤30em inline padding tightens to sm (matches header);
   verified at 320/375: no horizontal scroll, links one line, 48.8px
   hit targets.

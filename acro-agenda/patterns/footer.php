@@ -4,7 +4,7 @@
  * Slug: acro-agenda/footer
  * Categories: footer
  * Block Types: core/template-part/footer
- * Description: Pie con frase de cierre, enlaces de regiones, «Publica tu evento» y crédito.
+ * Description: Pie con frase de cierre, menú de navegación y crédito.
  */
 ?>
 <!-- wp:group {"tagName":"footer","className":"aa-footer","align":"full","backgroundColor":"base-2","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"},"blockGap":"var:preset|spacing|xl"}},"layout":{"type":"default"}} -->
@@ -17,31 +17,16 @@
 	<!-- wp:group {"className":"aa-footer-meta","style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 	<div class="wp-block-group aa-footer-meta">
 
-		<!-- wp:group {"tagName":"nav","className":"aa-footer-nav","ariaLabel":"<?php esc_attr_e( 'Pie de página', 'acro-agenda' ); ?>","style":{"spacing":{"blockGap":"var:preset|spacing|2xs"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
-		<nav class="wp-block-group aa-footer-nav" aria-label="<?php esc_attr_e( 'Pie de página', 'acro-agenda' ); ?>">
-
-			<!-- wp:paragraph {"className":"aa-footer-link"} -->
-			<p class="aa-footer-link"><a href="<?php echo esc_url( home_url( '/valencia/' ) ); ?>"><?php esc_html_e( 'Valencia', 'acro-agenda' ); ?></a></p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:paragraph {"className":"aa-footer-link"} -->
-			<p class="aa-footer-link"><a href="<?php echo esc_url( home_url( '/cataluna/' ) ); ?>"><?php esc_html_e( 'Cataluña', 'acro-agenda' ); ?></a></p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:paragraph {"className":"aa-footer-link"} -->
-			<p class="aa-footer-link"><a href="<?php echo esc_url( home_url( '/comunidad-de-madrid/' ) ); ?>"><?php esc_html_e( 'Madrid', 'acro-agenda' ); ?></a></p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:paragraph {"className":"aa-footer-link"} -->
-			<p class="aa-footer-link"><a href="<?php echo esc_url( home_url( '/festivales/' ) ); ?>"><?php esc_html_e( 'Festivales', 'acro-agenda' ); ?></a></p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:paragraph {"className":"aa-footer-link"} -->
-			<p class="aa-footer-link"><a href="<?php echo esc_url( home_url( '/publica-tu-evento/' ) ); ?>"><?php esc_html_e( 'Publica tu evento', 'acro-agenda' ); ?></a></p>
-			<!-- /wp:paragraph -->
-
+		<!-- wp:navigation {"overlayMenu":"never","ariaLabel":"<?php esc_attr_e( 'footer menu', 'acro-agenda' ); ?>","className":"aa-footer-nav","style":{"spacing":{"blockGap":"var:preset|spacing|2xs"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+		<nav class="wp-block-navigation aa-footer-nav" aria-label="<?php esc_attr_e( 'footer menu', 'acro-agenda' ); ?>">
+			<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Valencia', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/valencia/' ) ); ?>","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Publica tu evento', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/publica-tu-evento/' ) ); ?>","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'API', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/api/' ) ); ?>","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Aviso Legal', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/aviso-legal/' ) ); ?>","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Política de Privacidad', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/politica-de-privacidad/' ) ); ?>","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"<?php esc_attr_e( 'Política de Cookies', 'acro-agenda' ); ?>","url":"<?php echo esc_url( home_url( '/politica-de-cookies/' ) ); ?>","kind":"custom"} /-->
 		</nav>
-		<!-- /wp:group -->
+		<!-- /wp:navigation -->
 
 		<!-- wp:paragraph {"className":"aa-footer-copy","fontSize":"sm"} -->
 		<p class="aa-footer-copy has-sm-font-size">© <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
