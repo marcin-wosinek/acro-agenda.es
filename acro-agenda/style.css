@@ -324,7 +324,7 @@ body {
 	color: color-mix(in oklch, var(--wp--preset--color--contrast) 55%, transparent);
 }
 
-/* Hallmark · primitives: editorial split hero · event card · closing callout
+/* Hallmark · primitives: editorial split hero · closing callout
  * genre: playful · theme: Hum (locked, design.md)
  * roles: sol=primary action · cielo=links/hover · coral=one optional pop/view
  * pre-emit critique: P4 H4 E5 S5 R5 V4 */
@@ -365,53 +365,13 @@ body {
 	overflow-wrap: anywhere;
 }
 
-/* Event card — a quiet paper surface for real event blocks. The content
-   determines its own metadata; this style supplies no fabricated details. */
-.wp-block-group.is-style-event-card {
-	min-width: 0;
-	padding: var(--wp--preset--spacing--lg);
-	background-color: var(--wp--preset--color--base);
-	border-radius: var(--wp--custom--radius--card);
-	box-shadow: var(--wp--custom--shadow--card);
-	transition:
-		transform var(--wp--custom--duration--card) var(--wp--custom--ease--snap),
-		box-shadow var(--wp--custom--duration--card) var(--wp--custom--ease--snap),
-		background-color var(--wp--custom--duration--card) var(--wp--custom--ease--snap);
-}
-
-@media (hover: hover) {
-	.wp-block-group.is-style-event-card:hover {
-		transform: translateY(calc(-1 * var(--wp--preset--spacing--2-xs)));
-		background-color: var(--wp--preset--color--base-2);
-		box-shadow: var(--wp--custom--shadow--card);
-	}
-}
-
-/* Endcap — choose the coral style only when this is the view's single pop.
-   It is a closing surface, not a second primary-button treatment. */
-.wp-block-group.is-style-closing-callout,
-.wp-block-group.is-style-closing-callout-coral {
+/* Endcap — a centred Papel 2 closing surface, not a second primary-button
+   treatment. */
+.wp-block-group.is-style-closing-callout {
 	padding: var(--wp--preset--spacing--2xl);
 	background-color: var(--wp--preset--color--base-2);
 	border-radius: var(--wp--custom--radius--card);
 	text-align: center;
-}
-
-.wp-block-group.is-style-closing-callout-coral {
-	position: relative;
-	isolation: isolate;
-}
-
-.wp-block-group.is-style-closing-callout-coral::after {
-	content: "";
-	display: block;
-	position: absolute;
-	inset-block-start: var(--wp--preset--spacing--sm);
-	inset-inline-end: var(--wp--preset--spacing--lg);
-	width: var(--wp--preset--font-size--lg);
-	aspect-ratio: 1;
-	border-radius: var(--wp--custom--radius--pill);
-	background-color: var(--wp--preset--color--coral);
 }
 
 /* Small mono primitives — labels and tags stay on the neutral paper ramp so
@@ -439,8 +399,7 @@ p.is-style-activity-tag {
 	color: var(--wp--preset--color--contrast);
 }
 
-/* The visual panel stacks below its copy panel before narrow tablets. The
-   coral ornament re-enters normal flow on phones so it cannot overlap copy. */
+/* The visual panel stacks below its copy panel before narrow tablets. */
 @media (max-width: 48em) {
 	.wp-block-group.is-style-editorial-split-hero {
 		grid-template-columns: minmax(0, 1fr);
@@ -450,20 +409,12 @@ p.is-style-activity-tag {
 		grid-column: auto;
 	}
 
-	.wp-block-group.is-style-closing-callout-coral::after {
-		position: static;
-		display: block;
-		margin-inline: auto;
-		margin-block-end: var(--wp--preset--spacing--xs);
-	}
 }
 
 @media (max-width: 30em) {
 	.wp-block-group.is-style-editorial-split-hero,
 	.wp-block-group.is-style-editorial-split-hero > .wp-block-group,
-	.wp-block-group.is-style-event-card,
-	.wp-block-group.is-style-closing-callout,
-	.wp-block-group.is-style-closing-callout-coral {
+	.wp-block-group.is-style-closing-callout {
 		padding: var(--wp--preset--spacing--md);
 	}
 }
@@ -510,12 +461,4 @@ p.is-style-activity-tag {
 		box-shadow: none;
 	}
 
-	.wp-block-group.is-style-event-card {
-		transition: background-color 150ms linear;
-	}
-
-	.wp-block-group.is-style-event-card:hover {
-		transform: none;
-		background-color: var(--wp--preset--color--base-2);
-	}
 }

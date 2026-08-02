@@ -16,16 +16,8 @@ function acro_agenda_register_block_styles() {
 				'label' => __( 'Hero editorial dividido', 'acro-agenda' ),
 			),
 			array(
-				'name'  => 'event-card',
-				'label' => __( 'Tarjeta de evento', 'acro-agenda' ),
-			),
-			array(
 				'name'  => 'closing-callout',
 				'label' => __( 'Llamada de cierre', 'acro-agenda' ),
-			),
-			array(
-				'name'  => 'closing-callout-coral',
-				'label' => __( 'Llamada de cierre con pop coral', 'acro-agenda' ),
 			),
 		),
 		'core/paragraph' => array(
