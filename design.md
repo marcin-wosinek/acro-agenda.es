@@ -12,6 +12,12 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
+- 2026-08-02 · Masked Twenty Twenty-Five's inherited `section-1` through
+  `section-5` Group/Columns/Column style-variation partials. Their generic
+  labels and parent palette roles do not belong to the locked Hum system and
+  read as indistinguishable with this child theme's tokens. Same-named,
+  unscoped child partials prevent the parent files from entering the editor;
+  Acro Agenda's named reusable primitives remain the only Group styles.
 - 2026-08-01 · Publica tu evento now uses the existing editorial split-hero,
   event-card and coral closing-callout block styles through the private
   `acro-agenda/publica-tu-evento` pattern and its slug-specific page template.
