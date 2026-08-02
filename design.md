@@ -12,6 +12,13 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
+- 2026-08-02 · Festivales (`/festivales/`) follows the established
+  **content-led calendar** rhythm: a publication-first welcome card makes
+  submitting a festival the page’s clear invitation, then the complete
+  festival calendar is the immediate, practical centre of the page. A
+  dedicated organiser card repeats the free publication route without
+  introducing a second visual language. Copy only; it reuses the existing
+  «Tarjeta» and «Tarjeta cálida» primitives when built.
 - 2026-08-02 · Valencia (`/valencia/`) uses a **content-led ecosystem
   index**: the split welcome card gives the weekly list first, followed by
   the complete calendar in a second «Tarjeta», then one combined email and
