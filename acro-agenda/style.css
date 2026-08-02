@@ -324,46 +324,10 @@ body {
 	color: color-mix(in oklch, var(--wp--preset--color--contrast) 55%, transparent);
 }
 
-/* Hallmark · primitives: editorial split hero · closing callout
+/* Hallmark · primitive: closing callout
  * genre: playful · theme: Hum (locked, design.md)
  * roles: sol=primary action · cielo=links/hover · coral=one optional pop/view
  * pre-emit critique: P4 H4 E5 S5 R5 V4 */
-
-/* Editorial split hero — apply to an outer Group containing a copy Group and,
-   optionally, a visual Group. One child expands into a full copy panel; a
-   second child becomes the paper-and-sky visual surface without requiring an
-   invented photo or event data. */
-.wp-block-group.is-style-editorial-split-hero {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: var(--wp--preset--spacing--lg);
-	align-items: stretch;
-	padding: var(--wp--preset--spacing--lg);
-	background-color: var(--wp--preset--color--base);
-	border-radius: var(--wp--custom--radius--card);
-	box-shadow: var(--wp--custom--shadow--card);
-}
-
-.wp-block-group.is-style-editorial-split-hero > .wp-block-group {
-	min-width: 0;
-	margin-block-start: 0;
-	padding: var(--wp--preset--spacing--xl);
-	border-radius: var(--wp--custom--radius--card);
-	background-color: var(--wp--preset--color--base-2);
-}
-
-.wp-block-group.is-style-editorial-split-hero > .wp-block-group:nth-child(2) {
-	background-color: color-mix(in oklch, var(--wp--preset--color--cielo) 10%, var(--wp--preset--color--base));
-}
-
-.wp-block-group.is-style-editorial-split-hero > .wp-block-group:only-child {
-	grid-column: 1 / -1;
-}
-
-.wp-block-group.is-style-editorial-split-hero :is(h1, h2, h3, h4, h5, h6) {
-	min-width: 0;
-	overflow-wrap: anywhere;
-}
 
 /* Endcap — a centred Papel 2 closing surface, not a second primary-button
    treatment. */
@@ -399,21 +363,7 @@ p.is-style-activity-tag {
 	color: var(--wp--preset--color--contrast);
 }
 
-/* The visual panel stacks below its copy panel before narrow tablets. */
-@media (max-width: 48em) {
-	.wp-block-group.is-style-editorial-split-hero {
-		grid-template-columns: minmax(0, 1fr);
-	}
-
-	.wp-block-group.is-style-editorial-split-hero > .wp-block-group:only-child {
-		grid-column: auto;
-	}
-
-}
-
 @media (max-width: 30em) {
-	.wp-block-group.is-style-editorial-split-hero,
-	.wp-block-group.is-style-editorial-split-hero > .wp-block-group,
 	.wp-block-group.is-style-closing-callout {
 		padding: var(--wp--preset--spacing--md);
 	}

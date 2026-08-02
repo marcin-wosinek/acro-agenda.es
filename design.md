@@ -12,22 +12,20 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
-- 2026-08-02 · Renamed the two Group card styles by their surface treatment,
-  not their former page roles: «Tarjeta clara» is the light split card on the
-  Papel 2 band; «Tarjeta cálida» is the Papel 2 card on the light paper
-  surface. The stable slugs remain `editorial-split-hero` and
-  `closing-callout` so existing content retains its styling.
+- 2026-08-02 · Renamed the closing Group card style by its surface treatment:
+  «Tarjeta cálida» is the Papel 2 card on the light paper surface. Its stable
+  slug remains `closing-callout` so existing content retains its styling.
 - 2026-08-02 · Masked Twenty Twenty-Five's inherited `section-1` through
   `section-5` Group/Columns/Column style-variation partials. Their generic
   labels and parent palette roles do not belong to the locked Hum system and
   read as indistinguishable with this child theme's tokens. Same-named,
   unscoped child partials prevent the parent files from entering the editor;
   Acro Agenda's named reusable primitives remain the only Group styles.
-- 2026-08-02 · Publica tu evento uses only the editorial split-hero and
-  neutral closing-callout Group styles. Removed the unused event-card and
-  coral closing-callout variants, including their CSS, so the editor exposes
-  only the Group styles present on this page. The Fair Form block hierarchy
-  and attributes are unchanged.
+- 2026-08-02 · Publica tu evento’s opening card now uses native nested Group
+  and Columns blocks: its surface comes from the outer Group, and the heading,
+  CTA and copy retain their responsive layout without a bespoke Group style.
+  «Tarjeta clara» (`editorial-split-hero`) was removed from the editor and
+  stylesheet. The Fair Form block hierarchy and attributes are unchanged.
 - 2026-07-27 · v1 proposed single-accent terracotta (Coral register) under
   the then-current one-accent project rule.
 - 2026-07-27 · Marcin removed the one-accent rule and asked for genuinely
@@ -51,13 +49,6 @@ new visual vocabulary available without a page slug, custom CSS, invented
 event details or a database-only Site Editor change. Files: `functions.php`
 (registrations) and `style.css` (reusable behavior).
 
-- **Tarjeta clara** · Apply «Tarjeta clara» to an outer Group.
-  Its first inner Group is the copy panel; an optional second inner Group is a
-  soft cielo-tinted visual panel for blocks, an illustration supplied later,
-  or plain expressive type. The one-child form spans the full surface. At
-  ≤48em it becomes a single column with visual below copy; at ≤30em all panel
-  padding tightens to `md`. No imagery, date, attendance figure or testimonial
-  is fabricated by the primitive.
 - **Tarjeta cálida** · «Tarjeta cálida» is a centred Papel 2 section.
   Sol remains the sole primary push-button action in the view.
 - **Text primitives** · «Ceja mono» uses JetBrains Mono in the `sm` slot;

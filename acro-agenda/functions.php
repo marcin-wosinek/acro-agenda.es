@@ -12,10 +12,6 @@ function acro_agenda_register_block_styles() {
 		),
 		'core/group'  => array(
 			array(
-				'name'  => 'editorial-split-hero',
-				'label' => __( 'Tarjeta clara', 'acro-agenda' ),
-			),
-			array(
 				'name'  => 'closing-callout',
 				'label' => __( 'Tarjeta cálida', 'acro-agenda' ),
 			),
