@@ -19,6 +19,7 @@ e.g. the domain without TLD). The theme directory name **is** the slug.
 ├── CLAUDE.md              # symlink to AGENTS.md for Claude Code
 ├── design.md             # locked design system record (narrative; theme.json is canonical)
 ├── .wp-env.json          # local environment definition
+├── bin/                  # local operational helpers (including REST content publishing)
 ├── import/               # gitignored staging area for production DB dump + uploads
 └── <slug>/               # the theme (directory name = theme slug)
     ├── style.css         # theme header (Template: twentytwentyfive) + hand-written CSS
@@ -222,36 +223,28 @@ publication workflow: do not change the page title, slug, status, template,
 or other page settings unless the request explicitly says to do so.
 
 1. Start the local environment if needed: `npx wp-env start`.
-2. Resolve and confirm the target page from its slug before making any write.
-   This request is safe without REST credentials:
+2. Ensure the source file contains valid Gutenberg block markup (for example,
+   `<!-- wp:group -->` comments). Preview the exact target first:
 
    ```sh
-   curl --fail --silent --show-error --location --max-time 20 \
-     'http://localhost:9788/wp-json/wp/v2/pages?slug=<page-slug>&context=view&_fields=id,slug,status,link,title'
+   npm run publish:page:dry-run -- <page-slug> <source-file>.html
    ```
 
-   Confirm there is exactly one intended page and note its `id`.
-3. Ensure the source file contains valid Gutenberg block markup (for example,
-   `<!-- wp:group -->` comments), then publish it as the page's complete
-   `content` field. Never `source .env.wp-rest`: usernames and application
-   passwords may contain spaces. Read each value directly, and do not echo
-   variables or credentials:
+   This confirms exactly one matching, already-published page and prints only
+   its ID, slug, status and link. It does not write to WordPress.
+3. Publish the file as that page's complete `content` field:
 
    ```sh
-   rest_url=$(sed -n 's/^WP_REST_URL=//p' .env.wp-rest)
-   rest_user=$(sed -n 's/^WP_REST_USERNAME=//p' .env.wp-rest)
-   rest_password=$(sed -n 's/^WP_REST_APPLICATION_PASSWORD=//p' .env.wp-rest)
-
-   curl --fail --silent --show-error --location --max-time 20 \
-     --user "$rest_user:$rest_password" \
-     --request POST \
-     --data-urlencode 'content@<source-file>.html' \
-     "$rest_url/wp-json/wp/v2/pages/<page-id>?_fields=id,slug,status,modified,link"
+   npm run publish:page -- <page-slug> <source-file>.html
    ```
 
-   A successful response must retain the expected `id`, `slug`, and
-   `publish` status. Treat an HTTP 401/403 response as an authorization issue;
-   do not fall back to another account or method without user direction.
+   `bin/publish-page-content.sh` is the required publisher. It reads
+   `.env.wp-rest` without `source` (credentials may contain spaces), refuses
+   non-Gutenberg files, ambiguous/missing slugs and non-published pages, and
+   verifies the returned ID, slug and `publish` status. It changes only
+   `content`; never title, slug, template or other page settings. Treat an
+   HTTP 401/403 response as an authorization issue; do not fall back to
+   another account or method without user direction.
 4. Verify the public result with the repository screenshot helper, then
    inspect both images before reporting completion:
 

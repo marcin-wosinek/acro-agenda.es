@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "screenshot": "node scripts/screenshot.mjs"
+    "screenshot": "node scripts/screenshot.mjs",
+    "publish:page": "bin/publish-page-content.sh",
+    "publish:page:dry-run": "bin/publish-page-content.sh --dry-run"
   },
   "repository": {
     "type": "git",
