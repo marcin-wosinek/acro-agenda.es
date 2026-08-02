@@ -12,6 +12,14 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
+- 2026-08-02 · Valencia (`/valencia/`) uses a **content-led ecosystem
+  index**: the split welcome card gives the weekly list first, followed by
+  the complete calendar in a second «Tarjeta», then one combined email and
+  Instagram card. The existing Fair Events blocks retain their Valencia
+  source/category filtering and native subscription control. «Tarjeta
+  cálida» closes with the organiser route and Valencia sign-off. This reuses
+  the homepage and «Publica tu evento» Group styles without introducing a
+  page-specific surface or competing with the calendar itself.
 - 2026-08-02 · Homepage (`/pagina-de-inicio/`) uses a **neighbourhood
   guide** macrostructure: a split welcome card makes Valencia the immediate
   calendar path, then three equal region cards make the geographical choice
