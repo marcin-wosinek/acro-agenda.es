@@ -12,6 +12,13 @@ motion stance approved by Marcin and persisted into `theme.json`. Pages
 defer to this file; amend intentionally.**
 
 Decision history:
+- 2026-08-02 · Madrid (`/madrid/`) and Barcelona (`/barcelona/`) use the
+  established **publication-first calendar** rhythm: the welcome card makes
+  free event publication the only primary action, with the filtered regional
+  calendar directly below. A single email-signup card follows, using a
+  city-specific Fair Audience form; the warm organiser card repeats the
+  publication route. Both pages reuse existing «Tarjeta» and «Tarjeta cálida»
+  primitives and introduce no new tokens or page-specific styling.
 - 2026-08-02 · Festivales (`/festivales/`) follows the established
   **content-led calendar** rhythm: a publication-first welcome card makes
   submitting a festival the page’s clear invitation, then the complete
